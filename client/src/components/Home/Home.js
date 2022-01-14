@@ -3,7 +3,7 @@ import React from 'react';
 import { useEffect, useState} from 'react'; //useEffect llena el estado cuando se monta el componente
 import { useDispatch, useSelector } from 'react-redux';
 import { getVideogames, filterByOrigen, orderByGame, orderByRating, getGenres, filterByGenres } from '../../actions';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import Card from '../Card/Card';
 import Paginado from '../Paginado/Paginado';
 import SearchBar from '../SearchBar/SearchBar';
@@ -122,7 +122,10 @@ function Home() {
                     paginado={paginado}
                 />
 
+                
                 <SearchBar />
+
+                
                 
                 {/* {
                     currentVideogames?.map((el) => {
@@ -142,9 +145,12 @@ function Home() {
                 } */}
                 {
                     allVideogames === "VideoGame no encontrado" ? 
-                    <ErrorGame /> : 
+                      
+                     <Redirect to={'/error'}  /> : 
                     <CardList games={currentVideogames} />
                 }
+
+                
                 
                 
 

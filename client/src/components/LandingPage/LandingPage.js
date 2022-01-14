@@ -8,7 +8,7 @@ function LandingPage() {
         <div className='fondo'>
             <h1>Bienvenidos a PI videogames</h1>
             <Link to='/home'>
-                <butt>Ingresar a Home</butt>
+                <button>Ingresar a Home</button>
             </Link>
         </div>
     )

@@ -1,7 +1,10 @@
 import React from 'react'
+//import { useHistory } from 'react-router-dom'
 import Card from '../Card/Card'
 
+
 function CardList({games}) {
+    
     return (
         <div>
             <div>
@@ -22,6 +25,8 @@ function CardList({games}) {
                         }else{
                             return (
                                 <div>
+                                    
+                                   
                                     <h1>Juego no encontrado</h1>
                                 </div>
                             )
