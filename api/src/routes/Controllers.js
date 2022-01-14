@@ -17,7 +17,7 @@ async function getApiInfo() {
         nextApi = actualNext.data.next
 
     }
-    console.log(requestFiltrado.length);
+    //console.log(requestFiltrado.length);
     return requestFiltrado;
 }
 
@@ -52,10 +52,25 @@ async function allGames(){
     return todosGames; 
 }
 
+function mapeoPlatforms(gam){
+    const dataP = gam.map(g => {
+        return {
+            
+            platforms: g.platforms.map(el => el.platform.name)
+        }
+    })
+    return dataP;
+}
+
+
+
+
 
 module.exports = {
     getApiInfo,
     mapeoGames,
     getDbInfo,
-    allGames
+    allGames,
+    mapeoPlatforms
+    
 }

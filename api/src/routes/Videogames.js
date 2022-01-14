@@ -26,7 +26,7 @@ router.get('/', async (req, res) =>{
         if(gamesBuscado.length > 0){
             res.status(200).send(gamesBuscado);
         }else{
-            res.status(404).send('VideoGame no encontrado')
+            res.status(200).send('VideoGame no encontrado')
         }
     }else{
         const games = await allGames();

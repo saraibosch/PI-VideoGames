@@ -1,0 +1,21 @@
+.paginado {
+    position:relative;
+    align-content: center;
+    width: auto;
+}
+
+.number {
+    list-style: none;
+    display: inline-block;
+    border-radius: 10px;
+    background: linear-gradient(
+        180deg,#fd867d,#b1305c);
+    font-weight: 800;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.number p {
+    cursor: pointer;
+    padding: 8px;
+}
