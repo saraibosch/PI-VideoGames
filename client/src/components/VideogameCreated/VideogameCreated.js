@@ -3,6 +3,7 @@ import { useEffect, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {Link, useHistory} from 'react-router-dom';
 import { getGenres, getPlatforms, postVideogames } from '../../actions';
+import './VideoGameCreated.css'
 
 
 function validate(input) {
@@ -126,15 +127,19 @@ export default function VideogameCreated(){
     }, []);
 
     return (
-        <div>
+        <div className='containerVG'>
+            <div>
+                
+                <h1>Crea tu Videogame</h1>
+            </div>
             <Link to='/home'>
-                <button>Volver a Home</button>
+                <button className='volverH'>Volver a Home</button>
             </Link>
-
-            <h1>Crea tu Videogame</h1>
+            
+            
 
             <form onSubmit={(e) => handleSubmit(e)}>
-                <div>
+                <div className='nombreVG'>
                     <label>Nombre:</label>
                     <input
                         type='text'
@@ -145,13 +150,13 @@ export default function VideogameCreated(){
 
                     {
                         errors.name && (
-                            <p>{errors.name}</p>
+                            <p className='error'>{errors.name}</p>
                         )
                     }
                 </div>
 
-                <div>
-                    <label>description:</label>
+                <div className='descriptionVG'>
+                    <p className='descP'>Descripción:</p>
                     <textarea onChange={e => handleChangeInput(e)}
                         id='description'
                         value={input.description}
@@ -159,12 +164,12 @@ export default function VideogameCreated(){
                     />
                     {
                         errors.description && (
-                            <p>{errors.description}</p>
+                            <span className='error'>{errors.description}</span>
                         )
                     }
                 </div>
 
-                <div>
+                <div className='imagenVG'>
                     <label>Imagen:</label>
                     <input
                         type='text'
@@ -174,7 +179,7 @@ export default function VideogameCreated(){
                     />
                 </div>
 
-                <div>
+                <div className='releasedVG'>
                     <label>Fecha de Lanzamiento </label>
                     <input
                         type='text'
@@ -186,12 +191,12 @@ export default function VideogameCreated(){
 
                     {
                         errors.released && (
-                            <p>{errors.released}</p>
+                            <p className='error'>{errors.released}</p>
                         )
                     }
                 </div>
 
-                <div>
+                <div className='ratingVG'>
                     <label>Rating </label>
                     <input
                         type='number'
@@ -205,12 +210,12 @@ export default function VideogameCreated(){
                     />
                     {
                         errors.rating && (
-                            <p>{errors.rating}</p>
+                            <p className='error'>{errors.rating}</p>
                         )
                     }
                 </div>
 
-                <div>
+                <div className='plataformaVG'>
                     <label>Plataformas:  </label>
                     <select onChange={e => handleSelectPlataforms(e)}>
                         {
@@ -227,12 +232,12 @@ export default function VideogameCreated(){
                     </select>
                     {
                         errors.platforms && (
-                            <p>{errors.platforms}</p>
+                            <p className='error'>{errors.platforms}</p>
                         )
                     }
                 </div>
 
-                <div>
+                <div className='genreVG'>
                     <label>Generos:  </label>
                     <select onChange={e => handleSelectGenres(e)}>
                         {
@@ -255,12 +260,13 @@ export default function VideogameCreated(){
                     <ul><li>{input.genres.map(el => el + "**")}</li></ul>
                 </div> */}
 
-               
-                <button
-                    disabled={errors.name || errors.description || errors.released || errors.rating || errors.platforms}
-                    type="submit">
-                    CREAR
-                </button>
+               <div className='botonC'>
+                    <button
+                        disabled={errors.name || errors.description || errors.released || errors.rating || errors.platforms}
+                        type="submit">
+                        CREAR
+                    </button>
+                </div>
 
                 {/* {
                     errors.hasOwnProperty('name') ||
@@ -274,28 +280,31 @@ export default function VideogameCreated(){
 
 
             </form>
-
-            {
-                input.platforms &&
-                input.platforms.map(el =>
-                    <div className='divPlatforms'>
-                        <p>{el}</p>
-                        <button className='boton X'
-                            onClick={() => handleDeletePlatform(el)} > X </button>
-                    </div>
-                )
-            }
-
-            {
-                input.genres &&
-                input.genres.map(el =>
-                    <div className='divGenres'>
-                        <p>{el}</p>
-                        <button className='boton X'
-                            onClick={() => handleDeleteGenre(el)} > X </button>
-                    </div>
-                )
-            }
+            <div className='listPlat'>
+                {
+                    input.platforms &&
+                    input.platforms.map(el =>
+                        <div className='divPlatforms'>
+                            <p>{el}</p>
+                            <button className='boton X'
+                                onClick={() => handleDeletePlatform(el)} > X </button>
+                        </div>
+                    )
+                }
+            </div>
+            
+            <div className='listGenre'>
+                {
+                    input.genres &&
+                    input.genres.map(el =>
+                        <div className='divGenres'>
+                            <p>{el}</p>
+                            <button className='boton X'
+                                onClick={() => handleDeleteGenre(el)} > X </button>
+                        </div>
+                    )
+                }
+            </div>
         </div>
 
     )

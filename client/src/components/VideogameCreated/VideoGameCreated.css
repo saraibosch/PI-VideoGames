@@ -1,0 +1,273 @@
+.containerCreated{
+    color: white;
+    background-color: black;
+    margin: 3%;
+    border-radius: 17px;
+    border: solid;
+    border-color: rgb(210, 180, 222);
+}
+
+.containerVG{
+    display: grid;
+    background-color: black;
+    color: white;
+    margin: 3%;
+    border: 5px solid rgb(210, 180, 222);
+    border-radius: 5px;
+}
+
+.volverH{
+    display: block;
+    float: right;
+    margin-right: 15px;
+    margin-top: -65px;
+    border: none;
+    border-radius: 5px;
+    width: 125px;
+    height: 25px;
+    text-transform: uppercase;
+    font-size: 12px;
+    word-spacing: 3px;
+}
+
+.nombreVG{
+    margin-bottom: 15px;
+}
+
+.nombreVG label{
+        /* padding: 5px; */
+        padding-left: 17px;
+        padding-top: 2px;
+        padding-right: 15px;
+        padding-bottom: 7px;
+        background-color: rgb(210, 180, 222);
+        border-radius: 5px 0px 0px 5px;
+        color: black;
+        text-align: center;
+        font-weight: 600;
+
+}
+
+.nombreVG input{
+    padding: 5px;
+    background-color: white;
+    border: none;
+    border-radius: 0px 5px 5px 0px;
+    height: 20px;
+}
+
+.descriptionVG{
+    margin-bottom: 15px;
+}
+
+.descriptionVG p{
+    text-align: center; 
+    /* padding: 5px; */
+    display: inline-block;
+    font-size: 15px;
+    position: relative;
+    top: -32px;
+    /* margin: 2px; */
+    border-radius: 5px 0 0 5px;
+    width: 120px;
+    height: 48px;
+    border: none;
+    outline: none;
+    background: rgb(210, 180, 222);
+    /* font-family: 'Poppins', sans-serif; */
+    font-weight: 600;
+    color: #000;
+    
+    
+}
+
+.descriptionVG textarea{
+    font-size: 15px;
+    box-sizing: border-box;
+    background-color: #fff;
+    width: 203px;
+    height: 49px;
+    border: none;
+    outline: none;
+    padding: 0 25px;
+    border-radius: 0 5px 5px 0;
+    font-family: 'Poppins', sans-serif;
+    resize: none;
+}
+
+.imagenVG{
+    margin-bottom: 15px;
+    margin-top: -50px;
+}
+
+.imagenVG label{
+    padding-left: 17px;
+        padding-top: 2px;
+        padding-right: 15px;
+        padding-bottom: 7px;
+        background-color: rgb(210, 180, 222);
+        border-radius: 5px 0px 0px 5px;
+        color: black;
+        text-align: center;
+        font-weight: 600;
+}
+
+.imagenVG input{
+    padding: 5px;
+    background-color: white;
+    border: none;
+    border-radius: 0px 5px 5px 0px;
+    height: 20px;
+}
+
+.releasedVG{
+    margin-bottom: 15px;
+    margin-right: 105px;
+    
+}
+
+.releasedVG label{
+    padding-left: 17px;
+    padding-top: 2px;
+    padding-right: 15px;
+    padding-bottom: 7px;
+    background-color: rgb(210, 180, 222);
+    border-radius: 5px 0px 0px 5px;
+    color: black;
+    text-align: center;
+    font-weight: 600;
+}
+
+.releasedVG input{
+    padding: 5px;
+    background-color: white;
+    border: none;
+    border-radius: 0px 5px 5px 0px;
+    height: 20px;
+}
+
+.ratingVG{
+    margin-bottom: 15px;
+    margin-right: 93px;
+}
+
+.ratingVG label{
+    padding-left: 17px;
+    padding-top: 2px;
+    padding-right: 15px;
+    padding-bottom: 7px;
+    background-color: rgb(210, 180, 222);
+    border-radius: 5px 0px 0px 5px;
+    color: black;
+    text-align: center;
+    font-weight: 600;
+}
+
+.ratingVG input{
+    padding: 5px;
+    background-color: white;
+    border: none;
+    border-radius: 0px 5px 5px 0px;
+    height: 20px;
+
+}
+
+.plataformaVG{
+    margin-bottom: 15px;
+    position: relative;
+    float: left;
+    margin-left: 150px;
+}
+
+.plataformaVG label{
+    padding-left: 17px;
+    padding-top: 2px;
+    padding-right: 15px;
+    padding-bottom: 7px;
+    background-color: rgb(210, 180, 222);
+    border-radius: 5px 0px 0px 5px;
+    color: black;
+    text-align: center;
+    font-weight: 600;
+}
+
+.plataformaVG select{
+    padding: 5px;
+    background-color: white;
+    border: none;
+    border-radius: 0px 5px 5px 0px;
+    height: 29px;
+}
+
+.genreVG{
+    margin-bottom: 15px;
+    position: relative;
+    float: right;
+    margin-right: 160px;
+}
+
+.genreVG label{
+    padding-left: 17px;
+    padding-top: 2px;
+    padding-right: 15px;
+    padding-bottom: 7px;
+    background-color: rgb(210, 180, 222);
+    border-radius: 5px 0px 0px 5px;
+    color: black;
+    text-align: center;
+    font-weight: 600;
+}
+
+.genreVG select{
+    padding: 5px;
+    background-color: white;
+    border: none;
+    border-radius: 0px 5px 5px 0px;
+    height: 29px;
+}
+
+.botonC{
+    margin-top: 87px;
+    margin-bottom: 15px;
+}
+
+.botonC  button{
+    width: 77px;
+    height: 30px;
+    font-weight: 600;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.botonC button:hover{
+    background-color: violet;
+}
+
+.error{
+    /* display: inline-block; */
+    display: inline-block; 
+    font-size: 20px;
+    background-color: rgb(230, 211, 211);
+    color: rgba(206, 17, 17, 0.5);
+    width: 345px;
+    margin: auto;
+    margin-top: 5px;
+}
+
+.listPlat{
+    width: 100px;
+    /* display: inline-flex; */
+    float: left;
+    margin-left: 233px;
+    margin-top: -66px;
+
+}
+
+.listGenre{
+    width: 100px;
+    /* display: grid; */
+    float: right;
+    margin-left: 788px;
+    margin-top: -75px;
+}

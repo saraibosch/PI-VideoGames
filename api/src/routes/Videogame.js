@@ -34,28 +34,33 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
     const { name, description, background_image, released, rating, platforms, genres, createdInDB } = req.body;
-
-    const createdVideogame = await Videogame.create({
-        name,
-        description,
-        background_image,
-        released,
-        rating,
-        platforms,
-        createdInDB
+    try {
+        const createdVideogame = await Videogame.create({
+            name,
+            description,
+            background_image,
+            released,
+            rating,
+            platforms,
+            createdInDB
+            
+    
+        })
+    
+        const genresDB = await Genre.findAll({
+            where: {name: genres}
+        })
+    
+        createdVideogame.addGenre(genresDB);
+    
+        createdVideogame ?
+        res.json({msg: "Videogame creado exitosamente"}) :
+        res.json({msg: "error al crear nuevo videogame"})
         
-
-    })
-
-    const genresDB = await Genre.findAll({
-        where: {name: genres}
-    })
-
-    createdVideogame.addGenre(genresDB);
-
-    createdVideogame ?
-    res.json({msg: "Videogame creado exitosamente"}) :
-    res.json({msg: "error al crear nuevo videogame"})
+    } catch (error) {
+        console.log(error);
+    }
+    
 })
 
 

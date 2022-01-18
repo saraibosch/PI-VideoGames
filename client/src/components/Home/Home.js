@@ -14,7 +14,7 @@ import './Home.css'
 function Home() {
 
     const dispatch = useDispatch();
-    const allVideogames = useSelector((state) => state.videogames) // me traigo todo lo que esta en estado de videogames
+    const allVideogames = useSelector((state) => state.videogames) // me traigo todo lo que esta en estado de videogames(estado global)
     const genres = useSelector(state => state.genres)
 
     const [order, setOrder] = useState('')
@@ -32,9 +32,9 @@ function Home() {
 
     useEffect (() => {
         dispatch(getVideogames());
-    },[dispatch])
+    },[dispatch])// esteargumento [] es de lo q depende la ejecución del dispatch
 
-    useEffect(() => {  // cuando el componente se monte -> traigo todo
+    useEffect(() => {  // cuando el componente se monte  traigo todo
         dispatch(getGenres())
     }, [dispatch]);
 
@@ -74,7 +74,7 @@ function Home() {
     return (
         <div>
             <div>
-                <h1>VIDEOSGAMES APP</h1>
+                <h1>VIDEOGAMES APP</h1>
             </div>
             <div className='createL'>
                 <Link to= '/videogame'>

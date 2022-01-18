@@ -1,7 +1,7 @@
 import React from 'react'
 import './Paginado.css';
 
-function Paginado({videogamesPerPage, allVideogames, paginado}) {
+function Paginado({videogamesPerPage, allVideogames, paginado}) { // son las propiedades del otro componente
 
     const pageNumbers = [];
     for (let i = 1; i <= Math.ceil(allVideogames/videogamesPerPage); i++) {
