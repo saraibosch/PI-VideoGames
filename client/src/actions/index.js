@@ -12,7 +12,7 @@ export function getVideogames() {
             })
             
         } catch (error) {
-            console.log('error en getVideogame', error);
+            console.log(error);
         }
         
     }
@@ -69,6 +69,7 @@ export function getNameGames(name){
                 payload: json.data
             })
         } catch (error) {
+            alert('Videogame no encontrado')
             console.log(error);
         }
     }

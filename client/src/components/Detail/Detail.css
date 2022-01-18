@@ -1,0 +1,107 @@
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3,auto);
+    grid-template-areas: 
+    "titulo titulo"
+    "imagen descripcion"
+    "platGen ratLanz"
+    "botonVolver botonVolver";
+    border: solid;
+    border-color: #2EE59D;
+    margin: 5%;
+    border-radius: 2%;
+
+}
+
+.titulo{
+    grid-area: titulo;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.imagen{
+    grid-area: imagen;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagen img {
+    max-width: 400px;
+    max-height: 200px;
+    margin: 20px;
+    border-radius: 2%;
+}
+
+.descripcion {
+    grid-area: descripcion;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.descText {
+    font-size: 15px;
+    color: #ffff;
+    margin: 20px;
+    
+}
+
+.descText h2{
+    color: black;
+}
+
+.platGen{
+    position: relative;
+    grid-area: platGen;
+}
+
+.platGenText{
+    color: #ffff;
+    font-size: 15px;
+    margin-bottom: 30px;
+    
+}
+
+.platGenText h3{
+    color: black;
+}
+
+.ratLanz{
+    grid-area: ratLanz;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ratLanText{
+    color: #ffff;
+    font-size: 15px;
+    margin-bottom: 30px;
+}
+
+.ratLanText div h3{
+    color: black;
+}
+
+.botonVolver{
+    grid-area: botonVolver;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.botonVolver button{
+    cursor: pointer;
+    width: 55px;
+    height: 30px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: none;
+}
+

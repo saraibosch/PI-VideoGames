@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { getDetail } from '../../actions';
-
+import './Detail.css'
 
 function Detail(props) {
 
@@ -19,58 +19,72 @@ function Detail(props) {
     const myVideogame = useSelector((state) => state.detail)
     //let platforms = myVideogame.platforms;
     //let genres = myVideogame.genres
-    console.log(myVideogame);
+    //console.log(myVideogame);
 
 
     return (
-        <div>
+        <div className='container'>
             
                 
-            <div>
+            <div className='titulo'>
                 <h1>{myVideogame.name}</h1>
             </div>
 
-            <div>
-                <img src={myVideogame.background_image} alt='nohay imgen' />
+            <div className='imagen'>
+                <img src={myVideogame.background_image} alt='no hay imagen' />
             </div>
 
-            <div>
-                <h2>Descripción</h2>
-                <p dangerouslySetInnerHTML={{ __html: myVideogame.description }} />
+            <div className='descripcion'>
+                <div className='descText'>
+                    <h2>Descripción</h2>
+                    <p dangerouslySetInnerHTML={{ __html: myVideogame.description }} />
+                </div>
             </div>
 
-            <div>
-                <h2>Fecha de lanzamiento</h2>
-                <h6>{myVideogame.released}</h6>
-            </div>
+            <div className='platGen'>
+                <div className='platGenText'>
+                    <h3>Plataformas</h3>
 
-            <div>
-                <h2>Rating</h2>
-                <h6>{myVideogame.rating}</h6>
-            </div>
-            
-            <div>
-                <h3>Plataformas</h3>
-                {
+                    {
+                    
+                    myVideogame.platforms && myVideogame.platforms?.map(elem => <span key={elem} > {elem} --</span>) 
+                    }
+
                 
-                myVideogame.platforms && myVideogame.platforms?.map(elem => <span key={elem} > {elem} --</span>) 
-                }
-
-            </div>
-            
-            <div>
-                <h3>Géneros</h3>
-                {
-               
-                    myVideogame.genres && myVideogame.genres?.map(gen => <span key={myVideogame.id} > {gen.name} --</span>)
-                }
+                    <h3>Géneros</h3>
+                    {
+                
+                        myVideogame.genres && myVideogame.genres?.map(gen => <span key={gen.id} > {gen.name} --</span>)
+                    }
+                </div>
             </div>
 
+            <div className='ratLanz'>
+                <div className='ratLanText'>
+                    <div>
+                        <h3>Fecha de lanzamiento: </h3>
+                        {
+                        myVideogame.released
+                        }
+                    </div>
+                    <div>
+                        <h3>Rating: </h3>
+                        {
+                        myVideogame.rating
+                        }
+                    </div>
+            
+                </div>
+            </div>
+            
             
 
-            <Link to='/home'>
-                <button>Volver</button>
-            </Link>
+            <div className='botonVolver'>
+
+                <Link to='/home'>
+                    <button>Volver</button>
+                </Link>
+            </div>
             
         </div> 
         

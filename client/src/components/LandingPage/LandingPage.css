@@ -1,0 +1,26 @@
+body{
+    background-color: #566573;
+}
+
+h1{
+    margin-bottom: 35px;
+}
+
+.botonL button{
+    width: 200px;
+    height: 50px;
+    display: block;
+    margin: auto;
+    margin-top: 50px;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 10px;
+    background-color: #23313f;
+    color: white;
+    text-transform: uppercase;
+    word-spacing: 2px;
+    cursor: pointer;
+
+}
+
+a:link {text-decoration: none;}

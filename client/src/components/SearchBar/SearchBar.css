@@ -1,0 +1,23 @@
+.search{
+    margin: auto;
+    width: 500px;
+    margin-top: 20px;
+}
+
+.search input{
+    height: 24px;
+    margin-right: 0;
+    border: none;
+    padding: 5px;
+    border-radius: 10px 0px 0px 10px;
+}
+
+.search button{
+    margin-left: 0;
+    height: 34.5px;
+    border: none;
+    padding: 10px;
+    border-radius: 0px 10px 10px 0px;
+    background-color: rgb(210, 180, 222);
+    cursor: pointer;
+}

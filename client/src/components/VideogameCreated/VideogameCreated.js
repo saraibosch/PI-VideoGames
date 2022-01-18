@@ -6,22 +6,31 @@ import { getGenres, getPlatforms, postVideogames } from '../../actions';
 
 
 function validate(input) {
+    const exRegular = /^[a-zA-ZA-y\s]{3,80}$/
     let error = {};
-    if (!input.name || input.name === "*" || input.name === "FROM" || input.name === "SELECT" || input.name === "$") {
+    if (!input.name ) {
         error.name = "Nombre es requerido"
-    } else if (!input.description) {
-        error.description = "Descripcion es requerido"
-    } else if (!input.released) {
-        error.released = "Fecha de lanzamiento es requerido"
-    }else if(input.rating < 0 || input.rating > 5){
-        error.rating = "El rating tiene que ser entre 0 y 5"
-    } else if (input.platforms.length < 0) {
-        error.genres = "Plataformas es requerido"
-    } else if (input.genres.length < 0) {
-        error.platforms = "Generos es requerido"
     }
+    if (!exRegular.test(input.name.trim()) ){
+        error.name = 'soporta solo letras y un minimo de 3 caracteres'
+    }
+    if (!input.description) {
+        error.description = "Descripcion es requerido"
+    }
+    if (!input.released) {
+        error.released = "Fecha de lanzamiento es requerido"
+    }
+    if(input.rating < 0 || input.rating > 5){
+        error.rating = "El rating tiene que ser entre 0 y 5"
+    }
+    if (!input.platforms.length) {
+        error.genres = "Plataformas es requerido"
+    }
+    
     return error;
 }
+
+
 
 
 export default function VideogameCreated(){
@@ -52,6 +61,7 @@ export default function VideogameCreated(){
             ...input,
             [e.target.name]: e.target.value
         }))
+        
         console.log(input);
     }
 
@@ -67,6 +77,8 @@ export default function VideogameCreated(){
             ...input,
             platforms: [...input.platforms, e.target.value]
         })
+        
+        
     }
 
     function handleSubmit(e){
@@ -83,6 +95,7 @@ export default function VideogameCreated(){
             platforms: [],
             genres: []
         })
+
 
         history.push('/home')
     }
@@ -118,7 +131,7 @@ export default function VideogameCreated(){
                 <button>Volver a Home</button>
             </Link>
 
-            <h1>Cra tu Videogame</h1>
+            <h1>Crea tu Videogame</h1>
 
             <form onSubmit={(e) => handleSubmit(e)}>
                 <div>
@@ -204,6 +217,7 @@ export default function VideogameCreated(){
                             platforms.map((plat) =>(
                                 <option 
                                 value={plat}
+                                key={plat}
                                 name="platforms"
                                 >
                                     {plat}
@@ -211,6 +225,11 @@ export default function VideogameCreated(){
                             ))
                         }
                     </select>
+                    {
+                        errors.platforms && (
+                            <p>{errors.platforms}</p>
+                        )
+                    }
                 </div>
 
                 <div>
@@ -218,7 +237,7 @@ export default function VideogameCreated(){
                     <select onChange={e => handleSelectGenres(e)}>
                         {
                             genres.map((gen) =>(
-                                <option value={gen.name}>
+                                <option value={gen.name} key={gen.id}>
                                     {gen.name}
                                 </option>
                             ))
@@ -236,9 +255,22 @@ export default function VideogameCreated(){
                     <ul><li>{input.genres.map(el => el + "**")}</li></ul>
                 </div> */}
 
-                
+               
+                <button
+                    disabled={errors.name || errors.description || errors.released || errors.rating || errors.platforms}
+                    type="submit">
+                    CREAR
+                </button>
 
-                <button type='submit'>Crear Videogame</button>
+                {/* {
+                    errors.hasOwnProperty('name') ||
+                    errors.hasOwnProperty('description') ||
+                    errors.hasOwnProperty('rating') ?
+        
+                    <p> Please Complete the Required Fields </p> :
+                    <button type='submit' className='boton'> To Create! </button>
+                } */}
+                
 
 
             </form>

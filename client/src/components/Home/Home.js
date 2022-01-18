@@ -3,12 +3,11 @@ import React from 'react';
 import { useEffect, useState} from 'react'; //useEffect llena el estado cuando se monta el componente
 import { useDispatch, useSelector } from 'react-redux';
 import { getVideogames, filterByOrigen, orderByGame, orderByRating, getGenres, filterByGenres } from '../../actions';
-import {Link, Redirect} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import Card from '../Card/Card';
 import Paginado from '../Paginado/Paginado';
 import SearchBar from '../SearchBar/SearchBar';
-import ErrorGame from '../ErrorGame/ErrorGame';
-import CardList from '../CardList/CardList';
+import './Home.css'
 
 
 
@@ -25,7 +24,7 @@ function Home() {
     const [videogamesPerPage, setVideogamesPerPage] = useState(15); //cuantos VG por pagina y setear los VG por pagina
     const indexOfLastVideogame = currentPage * videogamesPerPage; // pagibna actual por la cantidad de VG por pagina
     const indexOfFirstVideogames = indexOfLastVideogame - videogamesPerPage // indice del ultimo VG menos los VG por pagina
-    const currentVideogames = allVideogames.slice(indexOfFirstVideogames, indexOfLastVideogame) //traigo el arreglo con todos los VG y le paso el slice para agarre ese array y tome la porcion de lo que le paso por parametro
+    let currentVideogames = allVideogames.slice(indexOfFirstVideogames, indexOfLastVideogame) //traigo el arreglo con todos los VG y le paso el slice para agarre ese array y tome la porcion de lo que le paso por parametro
 
     const paginado = (pageNumber) => {
         setCurrentPage(pageNumber)
@@ -74,47 +73,61 @@ function Home() {
 
     return (
         <div>
-            <Link to= '/videogame'>Crear nuevo videogame</Link>
-            <h1>Bienvenidos a Videogames</h1>
+            <div>
+                <h1>VIDEOSGAMES APP</h1>
+            </div>
+            <div className='createL'>
+                <Link to= '/videogame'>
+                    <button>
+                    Crear nuevo videogame
+                    </button>
+                </Link>
+            </div>
 
-            <button onClick={e => {handleClick(e)}}>
-                Volver a cargar los juegos
-            </button>
+            
+            <div className='cargarVG'>
+                <button onClick={e => {handleClick(e)}}>
+                    Volver a cargar los juegos
+                </button>
+            </div>
 
             <div>
                 {/* ORDENAMIENTO ASCENDENTE Y DESCENDENTE */}
-                <select onChange={e => handleSort(e)}>
+                <select className='selectsOF' onChange={e => handleSort(e)}>
                     <option value='All'>Ordenar A-Z</option>
                     <option value='Asc'>Ascendente</option>
                     <option value='Desc'>Descendente</option>
                 </select>
 
                 {/* ORDENAMIENTO POR RATING */}
-                <select onChange={e => handleSortRating(e)}>
+                <select className='selectsOF' onChange={e => handleSortRating(e)}>
                     <option value='null'>Select Rating </option>
                     <option value='rAsc'>Rating mayor </option>
                     <option value='rDesc'>Rating menor </option>
                 </select>
 
                 {/* FILTRADO POR VG EXISTENTES(API) O CREADOS(BD) */}
-                <select onChange={e => handleFilterByOrigen(e)}>
+                <select className='selectsOF' onChange={e => handleFilterByOrigen(e)}>
                     <option value={'All'}>Todos</option>
                     <option value={'Created'}>Creados</option>
                     <option value={'Api'}>Existentes</option>
                 </select>
 
                 {/* FILTRADO POR GENEROS */}
-                <select onChange={e => handleFilterByGenres(e)}>
+                <select className='selectsG' onChange={e => handleFilterByGenres(e)}>
                     <option value='All'>Todos Los Géneros ...</option>
                     {
                         genres?.map(el => (
                             <option
+                                key={el.id}
                                 value={el.name}>{el.name}
                             </option>
                         ))
                     }
                     
                 </select>
+
+                <SearchBar />
 
                 <Paginado
                     videogamesPerPage={videogamesPerPage}
@@ -123,37 +136,32 @@ function Home() {
                 />
 
                 
-                <SearchBar />
+                
+                    <div className='cardHome'>
 
-                
-                
-                {/* {
-                    currentVideogames?.map((el) => {
-                        return (
-                            <div>
-                                <Link to={'/videogame/' + el.id} >
-                                    <Card name={el.name} 
-                                        background_image={el.background_image}
-                                        genres={el.genres} 
-                                        rating={el.rating}
-                                        key={el.id} />
-                                </Link>
-                            </div>
-                        )
-                        
-                    })
-                } */}
-                {
-                    allVideogames === "VideoGame no encontrado" ? 
-                      
-                     <Redirect to={'/error'}  /> : 
-                    <CardList games={currentVideogames} />
-                }
-
+                    
+               
+                        {
+                            currentVideogames?.map((el) => {
+                                return (
+                                    <div className='cardsContainer' key={el.id}>
+                                        <Link to={'/videogame/' + el.id} >
+                                            <Card name={el.name} 
+                                                background_image={el.background_image}
+                                                genres={el.genres} 
+                                                rating={el.rating}
+                                                
+                                            />
+                                        </Link>
+                                    </div>
+                                )
+                                
+                            })
+                        }
+                    </div>
                 
                 
                 
-
                 
             </div>
 

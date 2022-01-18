@@ -9,12 +9,12 @@ function Paginado({videogamesPerPage, allVideogames, paginado}) {
         
     }
     return (
-        <nav>
-            <ul className= 'paginado'>
+        <nav className= 'paginado'>
+            <ul>
                 { pageNumbers && 
                     pageNumbers.map(number => (
                         <li className= 'number' key={number}>
-                        <p onClick={() => paginado(number)}>{number}</p>
+                            <p onClick={() => paginado(number)} >{number}</p>
                         </li>
                     ))}
             </ul>

@@ -1,0 +1,81 @@
+.createL{
+    
+    margin-bottom: 10px;
+    margin-right: 20px;
+    display: block;
+    float: right;
+    
+   
+}
+.createL button{
+    width: 200px;
+    height: 40px;
+    font-size: 15px;
+    border-style: none;
+    border-radius: 8px;
+    color: white;
+    background-color: rgb(27, 27, 27);
+    cursor: pointer;
+}
+
+.cargarVG{
+    
+    margin-bottom: 10px;
+    margin-left: 20px;
+    display: block;
+    float: left;
+}
+
+.cargarVG button{
+    width: 200px;
+    height: 40px;
+    font-size: 15px;
+    border-style: none;
+    border-radius: 8px;
+    color: white;
+    background-color: rgb(27, 27, 27);
+    cursor: pointer;
+}
+
+.selectsOF{
+    
+    margin-right: 15px;
+    width: 130px;
+    height: 40px;
+    font-size: 15px;
+    color: white;
+    background-color: rgb(27, 27, 27);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.selectsG{
+    
+    margin-right: 15px;
+    width: 200px;
+    height: 40px;
+    font-size: 15px;
+    color: white;
+    background-color: rgb(27, 27, 27);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cardHome{
+    display:grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill, 17rem);
+    gap: 4rem;
+    margin-top: 2rem;
+    
+    
+}
+
+
+
+.cardsContainer{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+}
